@@ -1,6 +1,14 @@
+import Header from './components/Header';
+import Main from './components/Main';
+import Footer from './components/Footer';
+
 function App() {
   return (
-    <h1>CV Builder</h1>
+    <div id = 'content'>
+      <Header />
+      <Main />
+      <Footer />
+    </div>
   );
 }
 
