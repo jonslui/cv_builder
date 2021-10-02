@@ -18,22 +18,46 @@ function InputForm(props){
       <hr/>
 
       <Experience
+        stateKey = 'websites'
+        buttonText = 'Website'
+        completedFields = {props.websites}
+        templateFields = {props.templates.websites}
+        onDataEntry = {props.onDataEntry}
+        newField = {props.newField}
+        removeField = {props.removeField}
+      />
+      <hr/>
+
+      <Experience
         stateKey = 'workExperience'
+        buttonText = 'Work Experience'
         completedFields = {props.workExperience}
         templateFields = {props.templates.workExperience}
         onDataEntry = {props.onDataEntry}
-        newField = {(key) => props.newField(key)}
-        removeField = {(key, index) => props.removeField(key, index)}
+        newField = {props.newField}
+        removeField = {props.removeField}
       />
       <hr/>
 
       <Experience
         stateKey = 'education'
+        buttonText = 'Education'
         completedFields = {props.education}
         templateFields = {props.templates.education}
         onDataEntry = {props.onDataEntry}
-        newField = {(key) => props.newField(key)}
-        removeField = {(key, index) => props.removeField(key, index)}
+        newField = {props.newField}
+        removeField = {props.removeField}
+      />
+      <hr/>
+
+      <Experience
+        stateKey = 'skills'
+        buttonText = 'Skill'
+        completedFields = {props.skills}
+        templateFields = {props.templates.skills}
+        onDataEntry = {props.onDataEntry}
+        newField = {props.newField}
+        removeField = {props.removeField}
       />
       <hr/>
 

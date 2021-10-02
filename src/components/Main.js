@@ -26,11 +26,19 @@ class Main extends React.Component{
           major: 'Major',
           gpa: 'GPA',
           graduationDate: 'Graduation date',
+        },
+        websites: {
+          address: 'www.example.com'
+        },
+        skills:{
+          name: 'Skill'
         }
       },
       contactInfo: {},
       workExperience: [],
       education: [],
+      websites: [],
+      skills: [],
     }
   }
   
@@ -87,6 +95,8 @@ class Main extends React.Component{
   render(){
     return (
       <InputForm 
+        skills = {this.state.skills}
+        websites = {this.state.websites}
         education = {this.state.education}
         workExperience = {this.state.workExperience}
         templates = {this.state.templates}

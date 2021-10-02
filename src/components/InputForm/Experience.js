@@ -27,7 +27,7 @@ function Experience(props){
       <input 
         type = 'submit'
         onClick = {() => props.newField(props.stateKey)}
-        value = 'Add'
+        value = {'Add ' + props.buttonText}
       />
     </div>
   )
