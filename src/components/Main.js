@@ -1,5 +1,7 @@
 import React from 'react';
 import InputForm from './InputForm/InputForm';
+import Preview from './Preview/CVPreview';
+import './Main.css';
 
 class Main extends React.Component{
   constructor(){
@@ -34,7 +36,12 @@ class Main extends React.Component{
           name: 'Skill'
         }
       },
-      contactInfo: {},
+      contactInfo: {
+        firstName: '',
+        lastName: '',
+        address: '',
+        phoneNumber: '',
+      },
       workExperience: [],
       education: [],
       websites: [],
@@ -94,16 +101,27 @@ class Main extends React.Component{
 
   render(){
     return (
-      <InputForm 
-        skills = {this.state.skills}
-        websites = {this.state.websites}
-        education = {this.state.education}
-        workExperience = {this.state.workExperience}
-        templates = {this.state.templates}
-        onDataEntry = {(key, subkey, value, index) => this.updateState(key, subkey, value, index)}
-        newField = {(key) => this.createNewField(key)}
-        removeField = {(key, index) => this.removeField(key, index)}
-      />
+      <div className = 'InputAndPreviewContainer'>
+        <InputForm 
+          templates = {this.state.templates}
+          websites = {this.state.websites}
+          workExperience = {this.state.workExperience}
+          education = {this.state.education}
+          skills = {this.state.skills}
+          onDataEntry = {(key, subkey, value, index) => this.updateState(key, subkey, value, index)}
+          newField = {(key) => this.createNewField(key)}
+          removeField = {(key, index) => this.removeField(key, index)}
+        />
+        
+        <Preview
+          templates = {this.state.templates}
+          contactInfo = {this.state.contactInfo}
+          websites = {this.state.websites}
+          workExperience = {this.state.workExperience}
+          education = {this.state.education}
+          skills = {this.state.skills}
+        />
+      </div> 
     )
   }
 }

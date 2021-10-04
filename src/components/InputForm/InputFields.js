@@ -1,3 +1,5 @@
+import './Styles/InputForm.css';
+
 /*
 This component recieves an object and renders input fields for each key in that object.
 Each input field calls props.onDataEntry which links back to updateState in Main.js
@@ -9,10 +11,11 @@ When the button is clicked and state updates, React recognizes the change and re
 */
 function InputFields(props){
   return (
-    <div>
+    <div className = {props.stateKey}>
          {
            Object.keys(props.fields).map((key) => {
               return <input 
+                className = {key}
                 type = 'text' 
                 key = {key}
                 placeholder = {props.fields[key]}

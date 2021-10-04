@@ -1,0 +1,48 @@
+.InputForm {
+  width: 400px;
+  /* background: white;
+  width: 21cm;
+  height: 29.7cm;
+  display: block;
+  margin: 0 auto;
+  margin-bottom: 0.5cm;
+  box-shadow: none; */
+}
+
+
+
+.Experience {
+
+}
+
+.contactInfo {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+}
+
+.websites {
+  
+}
+
+.workExperience {
+
+}
+
+.education {
+
+}
+
+.skills {
+
+}
+
+
+
+.InputFields {
+  
+}
+
+.responsibilities {
+  
+}

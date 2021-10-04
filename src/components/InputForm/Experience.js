@@ -1,4 +1,5 @@
 import InputFields from './InputFields';
+import './Styles/InputForm.css';
 
 /*
 This component recieves an array of objects stored in props.completedFields,
@@ -10,7 +11,7 @@ React then recognizes this and renders a new set of fields for the User to fill 
 */
 function Experience(props){
   return (
-    <div>
+    <div className = 'Experience'>
       {
         props.completedFields.map((object, index) => {
           return <InputFields 

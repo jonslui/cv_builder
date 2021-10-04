@@ -1,5 +1,6 @@
 import InputFields from './InputFields';
 import Experience from './Experience';
+import './Styles/InputForm.css';
 
 /*
 Contact Info is called using the InputFields component because
@@ -9,7 +10,7 @@ because their information is held as an array of Objects in state.
 */
 function InputForm(props){
   return (
-    <div>
+    <div className = 'InputForm'>
       <InputFields 
         stateKey = 'contactInfo' 
         fields = {props.templates.contactInfo} 

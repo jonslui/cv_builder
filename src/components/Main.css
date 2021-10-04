@@ -1,0 +1,4 @@
+.InputAndPreviewContainer{
+display: flex;
+flex-wrap: wrap;
+}
