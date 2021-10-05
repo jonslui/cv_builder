@@ -1,48 +1,99 @@
 .InputForm {
   width: 400px;
-  /* background: white;
-  width: 21cm;
-  height: 29.7cm;
-  display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
-  box-shadow: none; */
+  margin-bottom: 30px;
 }
 
-
-
-.Experience {
-
-}
-
-.contactInfo {
+.contactInfoInput {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  justify-content: center;
+  grid-template-areas: 
+  "firstName lastName"
+  "phoneNumber email"
+  "address address";
+}
+.firstNameInput {
+  grid-area: firstName;
+}
+.lastNameInput {
+  grid-area: lastName;
+}
+.phoneNumberInput {
+  grid-area: phoneNumber;
+}
+.emailInput {
+  grid-area: email;
+}
+.addressInput {
+  grid-area: address;
 }
 
-.websites {
-  
+
+.deleteButton {
+  grid-area: delete;
 }
 
-.workExperience {
 
+.workExperienceContainer {
+  /* display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 20px; */
+}
+.workExperienceInput {
+  display: grid;
+  margin-top: 20px;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  "job company"
+  "location dates"
+  "responsibilities responsibilities"
+  "delete delete";
+}
+.jobTitleInput{
+  grid-area: job;
+}
+.companyNameInput {
+  grid-area: company;
+}
+.locationInput {
+  grid-area: location;
+}
+.datesEmployedInput {
+  grid-area: dates;
+}
+.responsibilitiesInput {
+  grid-area: responsibilities;
 }
 
-.education {
 
+.educationInput {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-areas:
+  "university university"
+  "date degree"
+  "major gpa"
+  "delete delete";
 }
+.universityInput {
+  grid-area: university;
+}
+.degreeInput {
+  grid-area: degree;
+}
+.majorInput {
+  grid-area: major;
+}
+.gpaInput {
+  grid-area: gpa;
+}
+.graduationDateInput {
+  grid-area: date;
+}
+
 
 .skills {
 
 }
-
-
-
-.InputFields {
-  
-}
-
-.responsibilities {
+.websites {
   
 }

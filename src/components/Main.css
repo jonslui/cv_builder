@@ -1,4 +1,6 @@
 .InputAndPreviewContainer{
 display: flex;
 flex-wrap: wrap;
+justify-content: center;
+column-gap: 30px;
 }

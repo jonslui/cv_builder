@@ -1,9 +1,130 @@
-.CVPreview {
+#CVPreview {
   background: white;
-  width: 21cm;
-  height: 29.7cm;
+  width: 159.2mm;
+  min-width: 159.2mm;
+  height: 246.2mm;
+  min-height: 246.2mm;
+  padding: 25.4mm 25.4mm 25.4mm 25.4mm;
+  overflow-y: hidden;
   display: block;
-  margin: 0 auto;
-  margin-bottom: 0.5cm;
-  box-shadow: none;
+  box-shadow: 5px 5px 5px gray, -5px 5px 5px gray, 5px -5px 5px gray, -5px -5px 5px gray;
+  font-family: "Times New Roman";
+  font-size: 12pt;
+}
+
+.namesPreview{
+  display: flex;
+  justify-content: center;
+  column-gap: 5px;
+  font-size: 22pt;
+}
+.personalInfoPreview{
+  display: grid;
+  justify-content: center;
+  column-gap: 10px;
+  row-gap: 0px;
+  text-align: center;
+}
+.phoneNumberPreview {
+  grid-column: 1;
+}
+.emailPreview {
+  grid-column: 2;
+}
+.addressPreview {
+  grid-column: span 2;
+}
+
+
+.workExperiencePreview {
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  grid-template-areas: 
+    "job company location date"
+    "responsibilities responsibilities responsibilities responsibilities";
+}
+.jobTitlePreview {
+  grid-area: job;
+  margin-right: 4px;
+  font-weight: bold;
+}
+.companyNamePreview {
+  grid-area: company;
+  margin-right: 4px;
+  font-weight: bold;
+}
+.locationPreview {
+  grid-area: location;
+}
+.datesEmployedPreview {
+  grid-area: date;
+  justify-self: end;
+  font-style: italic;
+}
+.responsibilitiesPreview {
+  grid-area: responsibilities;
+  word-wrap: break-word;
+  white-space: pre-line;
+
+}
+
+
+.educationSection {
+
+}
+.educationPreview {
+  display: grid;
+  grid-template-columns: auto auto auto 1fr;
+  grid-template-areas: 
+    "university university university date"
+    "degree major gpa gpa";
+}
+.universityPreview {
+  grid-area: university;
+  font-weight: bold;
+}
+.graduationDatePreview {
+  grid-area: date;
+  justify-self: end;
+  font-style: italic;
+
+}
+.degreePreview {
+  margin-top: 10px;
+  margin-left: 41px;
+  grid-area: degree;
+  margin-right: 4px;
+}
+.majorPreview {
+  margin-top: 10px;
+  grid-area: major;
+}
+.gpaPreview {
+  margin-top: 10px;
+  grid-area: gpa;
+  justify-self: end;
+}
+
+
+
+
+.websitesSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+}
+.websitePreview {
+
+}
+
+
+.skillsSection {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  column-gap: 30px;
+}
+.namePreview{
+
 }

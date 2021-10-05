@@ -1,3 +1,4 @@
+import React from 'react';
 import InputFields from './InputFields';
 import './Styles/InputForm.css';
 
@@ -11,13 +12,14 @@ React then recognizes this and renders a new set of fields for the User to fill 
 */
 function Experience(props){
   return (
-    <div className = 'Experience'>
+    <div className = {props.stateKey + 'Container'}>
       {
         props.completedFields.map((object, index) => {
           return <InputFields 
-            key = {index}
             index = {index}
-            fields = {props.templateFields}
+            key = {object.id}
+            completedFields = {object}
+            templateFields = {props.templateFields}
             removeField = {(key, index) => props.removeField(key, index)}
             onDataEntry = {props.onDataEntry}
             stateKey = {props.stateKey}

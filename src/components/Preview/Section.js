@@ -1,14 +1,16 @@
 import Fields from './Fields';
+import './Styles/CVPreview.css'
 /*
 
 */
 function Section(props){
   return (
-    <div>
+    <div className = {props.stateKey + 'Section'}>
       {
-        props.completedFields.map((object, index) => {
+        props.completedFields.map((object) => {
             return <Fields
-              key = {index}
+              key = {object.id}
+              stateKey = {props.stateKey}
               completedFields = {object}
               templateFields = {props.templateFields}
           />

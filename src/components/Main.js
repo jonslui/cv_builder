@@ -1,51 +1,110 @@
 import React from 'react';
 import InputForm from './InputForm/InputForm';
 import Preview from './Preview/CVPreview';
+import uniqid from 'uniqid';
 import './Main.css';
+
 
 class Main extends React.Component{
   constructor(){
     super();
     this.state = {
       templates: {
-        contactInfo: {
-          firstName: 'First Name',
-          lastName: 'Last Name',
-          address: 'Address',
-          phoneNumber: 'Phone Number',
+        empty : {
+          contactInfo: {
+            firstName: '',
+            lastName: '',
+            phoneNumber: '',
+            email: '',
+            address: '',
+
+          },
+          projects: {
+            name: '',
+            languages: '',
+            link: '',
+            description: '',
+          },
+          workExperience: {
+            jobTitle: '',
+            companyName: '',
+            location: '',
+            datesEmployed: '',
+            responsibilities: '',
+
+          },
+          education: {
+            university: '',
+            graduationDate: '',
+            degree: '',
+            major: '',
+            gpa: '',
+
+          },
+          websites: {
+            website: '',
+
+          },
+          skills:{
+            skill: '',
+
+          }
         },
-        workExperience: {
-          jobTitle: 'Job Title',
-          companyName: 'Company Name',
-          location: 'Location',
-          startDate: 'Start Date',
-          endDate: 'End Date',
-          responsibilities: 'Responsibilities',
-        },
-        education: {
-          university: 'University',
-          degree: 'Degree',
-          major: 'Major',
-          gpa: 'GPA',
-          graduationDate: 'Graduation date',
-        },
-        websites: {
-          address: 'www.example.com'
-        },
-        skills:{
-          name: 'Skill'
+        filled: {
+          contactInfo: {
+            firstName: 'First Name',
+            lastName: 'Last Name',
+            phoneNumber: 'Phone Number',
+            email: 'Email Address',
+            address: 'Address',
+
+          },
+          projects: {
+            name: 'Project Name',
+            languages: 'Languages Used',
+            link: 'Link',
+            description: 'Description',
+          },
+          workExperience: {
+            jobTitle: 'Job Title',
+            companyName: 'Company Name',
+            location: 'Location',
+            datesEmployed: 'Dates Employed',
+            responsibilities: 'Responsibilities',
+
+          },
+          education: {
+            university: 'University',
+            graduationDate: 'Graduation date',
+            degree: 'Degree',
+            major: 'Major',
+            gpa: 'GPA',
+
+          },
+          websites: {
+            website: 'www.example.com',
+
+          },
+          skills:{
+            skill: 'Skill',
+
+          }
         }
       },
       contactInfo: {
         firstName: '',
         lastName: '',
-        address: '',
         phoneNumber: '',
+        email: '',
+        address: '',
+        id: uniqid(),
+
       },
       workExperience: [],
       education: [],
       websites: [],
       skills: [],
+      
     }
   }
   
@@ -54,8 +113,11 @@ class Main extends React.Component{
   It copies a template object into the corresponding array in state, rendering in the DOM.
   */
   createNewField(key){
+    // let newChild = {...this.state.templates.empty[key], id: uniqid()};
+
     this.setState({
-      [key] : this.state[key].concat(this.state.templates[key])
+      [key] : this.state[key].concat({...this.state.templates.empty[key], id: uniqid()}),
+      
     })
   }
 
@@ -75,8 +137,7 @@ class Main extends React.Component{
   and keys that contain an array of objects (WorkExperience, Education, Websites, Skills). 
   */
   updateState(key, subkey, value, index){
-    console.log(this.state[key]);
-
+    console.log(this.state);
     if (key === 'contactInfo') {
       this.setState(prevState => ({
         [key]: {
@@ -103,7 +164,8 @@ class Main extends React.Component{
     return (
       <div className = 'InputAndPreviewContainer'>
         <InputForm 
-          templates = {this.state.templates}
+          templates = {this.state.templates.filled}
+          contactInfo = {this.state.contactInfo}
           websites = {this.state.websites}
           workExperience = {this.state.workExperience}
           education = {this.state.education}
@@ -114,13 +176,14 @@ class Main extends React.Component{
         />
         
         <Preview
-          templates = {this.state.templates}
+          templates = {this.state.templates.filled}
           contactInfo = {this.state.contactInfo}
           websites = {this.state.websites}
           workExperience = {this.state.workExperience}
           education = {this.state.education}
           skills = {this.state.skills}
         />
+
       </div> 
     )
   }

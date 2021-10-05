@@ -1,5 +1,6 @@
 import InputFields from './InputFields';
 import Experience from './Experience';
+import ExportPDF from './Export';
 import './Styles/InputForm.css';
 
 /*
@@ -13,7 +14,8 @@ function InputForm(props){
     <div className = 'InputForm'>
       <InputFields 
         stateKey = 'contactInfo' 
-        fields = {props.templates.contactInfo} 
+        completedFields = {props.contactInfo}
+        templateFields = {props.templates.contactInfo}
         onDataEntry = {props.onDataEntry}
       />
       <hr/>
@@ -62,6 +64,7 @@ function InputForm(props){
       />
       <hr/>
 
+      <ExportPDF />
     </div>
     )
 }
