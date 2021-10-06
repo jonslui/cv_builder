@@ -3,7 +3,10 @@ import html2canvas from 'html2canvas';
 import jsPDF from 'jspdf';
 import './Styles/InputForm.css';
 /*
-
+  On button press, this component takes the div element CVPreview and creates an image using
+  Html2Canvas at scale:2 to increase quality, then passes that image to jsPDF which
+  turns it into a pdf.
+  The user is then prompted to save that pdf.
 */
 
 class ExportPDF extends React.Component {
@@ -25,4 +28,4 @@ class ExportPDF extends React.Component {
   }
 }
 
-export default ExportPDF
+export default ExportPDF;

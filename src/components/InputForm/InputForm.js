@@ -1,6 +1,8 @@
 import InputFields from './InputFields';
 import Experience from './Experience';
 import ExportPDF from './Export';
+import Header from '../Header';
+import SampleButton from './SampleButton';
 import './Styles/InputForm.css';
 
 /*
@@ -12,14 +14,24 @@ because their information is held as an array of Objects in state.
 function InputForm(props){
   return (
     <div className = 'InputForm'>
+      <Header />
+
+      <SampleButton 
+        displaySample = {props.displaySample} 
+      />
+
+      <h2>Contact Info</h2>
       <InputFields 
         stateKey = 'contactInfo' 
+        key = {props.contactInfo.id}
+        buttonText = 'Website'
         completedFields = {props.contactInfo}
         templateFields = {props.templates.contactInfo}
         onDataEntry = {props.onDataEntry}
       />
       <hr/>
 
+      <h2>Websites</h2>
       <Experience
         stateKey = 'websites'
         buttonText = 'Website'
@@ -31,6 +43,19 @@ function InputForm(props){
       />
       <hr/>
 
+      <h2>Projects</h2>
+      <Experience
+        stateKey = 'projects'
+        buttonText = 'Project'
+        completedFields = {props.projects}
+        templateFields = {props.templates.projects}
+        onDataEntry = {props.onDataEntry}
+        newField = {props.newField}
+        removeField = {props.removeField}
+      />
+      <hr/>
+
+      <h2>Work Experience</h2>
       <Experience
         stateKey = 'workExperience'
         buttonText = 'Work Experience'
@@ -42,6 +67,7 @@ function InputForm(props){
       />
       <hr/>
 
+      <h2>Education</h2>
       <Experience
         stateKey = 'education'
         buttonText = 'Education'
@@ -53,6 +79,7 @@ function InputForm(props){
       />
       <hr/>
 
+      <h2>Skills</h2>
       <Experience
         stateKey = 'skills'
         buttonText = 'Skill'

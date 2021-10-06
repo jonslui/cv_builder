@@ -35,6 +35,30 @@
   grid-column: span 2;
 }
 
+.projectsPreview {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  grid-template-areas: 
+  "projectName languages projectLink"
+  "description description description";
+}
+.projectNamePreview {
+  grid-area: projectName;
+  font-weight: bold;
+  margin-right: 4px;
+}
+.languagesPreview {
+  grid-area: languages;
+}
+.projectLinkPreview {
+  grid-area: projectLink;
+  justify-self: end;
+  font-style: italic;
+}
+.descriptionPreview {
+  grid-area: description;
+}
+
 
 .workExperiencePreview {
   display: grid;
@@ -104,8 +128,6 @@
   grid-area: gpa;
   justify-self: end;
 }
-
-
 
 
 .websitesSection {

@@ -1,7 +1,8 @@
 import Fields from './Fields';
 import './Styles/CVPreview.css'
 /*
-
+  This component recieves an array of data from CVPreview and then creates Fields Components
+  for each object in the array.
 */
 function Section(props){
   return (
@@ -15,7 +16,9 @@ function Section(props){
               templateFields = {props.templateFields}
           />
         })
+        
       }
+
     </div>
   )
 }

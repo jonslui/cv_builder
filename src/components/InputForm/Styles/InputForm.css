@@ -1,6 +1,7 @@
 .InputForm {
   width: 400px;
-  margin-bottom: 30px;
+  height: 1122.52px;
+  overflow-y: auto;
 }
 
 .contactInfoInput {
@@ -33,10 +34,33 @@
 }
 
 
-.workExperienceContainer {
-  /* display: grid;
+.projectsInput {
+  display: grid;
+  margin-top: 20px;
   grid-template-columns: 1fr;
-  row-gap: 20px; */
+  grid-template-areas: 
+  "projectName"
+  "languages"
+  "location"
+  "description"
+  "delete";
+}
+.projectNameInput {
+  grid-area: projectName;
+}
+.languagesInput {
+  grid-area: languages;
+}
+.projectLinkInput {
+  grid-area: location;
+}
+.descriptionInput {
+  grid-area: description;
+  resize: vertical;
+}
+
+.workExperienceContainer {
+
 }
 .workExperienceInput {
   display: grid;
@@ -62,6 +86,7 @@
 }
 .responsibilitiesInput {
   grid-area: responsibilities;
+  resize: vertical;
 }
 
 

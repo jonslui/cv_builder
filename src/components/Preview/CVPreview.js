@@ -3,7 +3,9 @@ import Fields from './Fields';
 import './Styles/CVPreview.css';
 
 /*
-
+  This component passes the relevant props to each Section Component for state data stored as an array,
+  and to Fields Components for data stored in an object.
+  These called components return div elements that populate the CV page.
 */
 function Preview(props){
   return (
@@ -41,9 +43,16 @@ function Preview(props){
         completedFields = {props.websites}
         templateFields = {props.templates.websites} 
       />
-
+      
       <hr/>
 
+      <Section
+        stateKey = 'projects'
+        completedFields = {props.projects}
+        templateFields = {props.templates.projects}
+      />
+      
+      <hr/>
 
       <Section
         stateKey = 'workExperience'
@@ -51,7 +60,7 @@ function Preview(props){
         templateFields = {props.templates.workExperience}
       />
 
-    <hr/>
+      <hr/>
 
       <Section
         stateKey = 'education'
@@ -59,8 +68,7 @@ function Preview(props){
         templateFields = {props.templates.education}
       />
 
-    <hr/>
-
+      <hr/>
 
       <Section
         stateKey = 'skills'
