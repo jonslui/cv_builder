@@ -19,12 +19,12 @@ class ExportPDF extends React.Component {
         const image = canvas.toDataURL('img/png');
         const pdf = new jsPDF();
         pdf.addImage(image, 'JPEG', 0, 0, 210, 297);
-        pdf.save('resume.pdf');
+        pdf.save('Resume.pdf');
       })
   }
 
   render(){
-    return <button className = 'exportButton' onClick = {this.convertToPDF}>Save PDF</button>
+    return <button className = 'exportButton' onClick = {() => {this.convertToPDF()}}>Save PDF</button>
   }
 }
 

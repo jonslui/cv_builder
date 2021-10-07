@@ -1,95 +1,49 @@
 import InputFields from './InputFields';
-import Experience from './Experience';
+import InputSection from './InputSection';
 import ExportPDF from './Export';
-import Header from '../Header';
-import SampleButton from './SampleButton';
+import AutoFillButtons from './AutoFillButtons';
 import './Styles/InputForm.css';
 
 /*
 Contact Info is called using the InputFields component because
 its data is kept as a singular object in state.
-Work Experience, Education, Websites, and Skills call the Experience component
-because their information is held as an array of Objects in state. 
+Work Experience, Projects, Education, Websites, and Skills are rendered using the Experience component
+because their information is held as an array of Objects in state.
 */
 function InputForm(props){
   return (
     <div className = 'InputForm'>
-      <Header />
+      <h1>CV Builder</h1>
 
-      <SampleButton 
-        displaySample = {props.displaySample} 
+      <AutoFillButtons 
+        replaceState = {props.replaceState}
       />
 
       <h2>Contact Info</h2>
       <InputFields 
         stateKey = 'contactInfo' 
         key = {props.contactInfo.id}
-        buttonText = 'Website'
         completedFields = {props.contactInfo}
         templateFields = {props.templates.contactInfo}
         onDataEntry = {props.onDataEntry}
       />
       <hr/>
 
-      <h2>Websites</h2>
-      <Experience
-        stateKey = 'websites'
-        buttonText = 'Website'
-        completedFields = {props.websites}
-        templateFields = {props.templates.websites}
-        onDataEntry = {props.onDataEntry}
-        newField = {props.newField}
-        removeField = {props.removeField}
-      />
-      <hr/>
-
-      <h2>Projects</h2>
-      <Experience
-        stateKey = 'projects'
-        buttonText = 'Project'
-        completedFields = {props.projects}
-        templateFields = {props.templates.projects}
-        onDataEntry = {props.onDataEntry}
-        newField = {props.newField}
-        removeField = {props.removeField}
-      />
-      <hr/>
-
-      <h2>Work Experience</h2>
-      <Experience
-        stateKey = 'workExperience'
-        buttonText = 'Work Experience'
-        completedFields = {props.workExperience}
-        templateFields = {props.templates.workExperience}
-        onDataEntry = {props.onDataEntry}
-        newField = {props.newField}
-        removeField = {props.removeField}
-      />
-      <hr/>
-
-      <h2>Education</h2>
-      <Experience
-        stateKey = 'education'
-        buttonText = 'Education'
-        completedFields = {props.education}
-        templateFields = {props.templates.education}
-        onDataEntry = {props.onDataEntry}
-        newField = {props.newField}
-        removeField = {props.removeField}
-      />
-      <hr/>
-
-      <h2>Skills</h2>
-      <Experience
-        stateKey = 'skills'
-        buttonText = 'Skill'
-        completedFields = {props.skills}
-        templateFields = {props.templates.skills}
-        onDataEntry = {props.onDataEntry}
-        newField = {props.newField}
-        removeField = {props.removeField}
-      />
-      <hr/>
+    {
+      props.stateKeys.map((key, index) => {
+        return <InputSection
+          stateKey = {key}
+          key = {key}
+          buttonText = {props.buttonText[index]}
+          completedFields = {props[key]}
+          templateFields = {props.templates[key]}
+          onDataEntry = {props.onDataEntry}
+          newField = {props.newField}
+          removeField = {props.removeField}
+        
+        />
+      })
+    }
 
       <ExportPDF />
     </div>

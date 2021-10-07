@@ -147,11 +147,11 @@ class Main extends React.Component{
   }
 
   /*
-    This function is called by an instance of SampleButton contained in InputForms.
+    This function is called by an instance of AutoFillButtons contained in InputForms.
     It passes an object named newState with sample data for:
     contactInfo, projects, workExperience, education, websites, and skills
   */
-  displaySample(newState){
+  replaceState(newState){
     this.setState(newState)
   }
 
@@ -160,6 +160,8 @@ class Main extends React.Component{
     return (
       <div className = 'InputAndPreviewContainer'>
         <InputForm 
+          stateKeys = {['websites', 'projects', 'workExperience', 'education', 'skills']}
+          buttonText = {['Website', 'Project', 'Work Experience', 'Education', 'Skills']}        
           templates = {this.state.templates.filled}
           contactInfo = {this.state.contactInfo}
           websites = {this.state.websites}
@@ -170,10 +172,11 @@ class Main extends React.Component{
           onDataEntry = {(key, subkey, value, index) => this.updateState(key, subkey, value, index)}
           newField = {(key) => this.createNewField(key)}
           removeField = {(key, index) => this.removeField(key, index)}
-          displaySample = {(newState) => this.displaySample(newState)}
+          replaceState = {(newState) => this.replaceState(newState)}
         />
         
         <Preview
+          stateKeys = {['websites', 'projects', 'workExperience', 'education', 'skills']}
           templates = {this.state.templates.filled}
           contactInfo = {this.state.contactInfo}
           websites = {this.state.websites}

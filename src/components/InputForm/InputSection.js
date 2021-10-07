@@ -10,9 +10,11 @@ The button at the bottom links back to createNewField in Main.js,
 which updates state by replacing the corresponding key's data with a copy of its data + a new object.
 React then recognizes this and renders a new set of fields for the User to fill in.
 */
-function Experience(props){
+function InputSection(props){
   return (
     <div className = {props.stateKey + 'Container'}>
+      <h2>{props.buttonText}</h2>
+
       {
         props.completedFields.map((object, index) => {
           return <InputFields 
@@ -29,11 +31,14 @@ function Experience(props){
       
       <input 
         type = 'submit'
+        className = {'addContentButton'}
         onClick = {() => props.newField(props.stateKey)}
         value = {'Add ' + props.buttonText}
       />
+
+      <hr></hr>
     </div>
   )
 }
 
-export default Experience;
+export default InputSection;

@@ -1,5 +1,7 @@
 #CVPreview {
   background: white;
+
+  /* mm sizings here are to match the dimensions of an A4 paper */
   width: 159.2mm;
   min-width: 159.2mm;
   height: 246.2mm;

@@ -28,9 +28,17 @@
   grid-area: address;
 }
 
+.autofillbuttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
 
 .deleteButton {
   grid-area: delete;
+}
+
+.addContentButton {
+  width: 50%;
 }
 
 
@@ -119,6 +127,6 @@
 .skills {
 
 }
-.websites {
-  
+
+.websitesInput {
 }

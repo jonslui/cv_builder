@@ -6,7 +6,7 @@
   If the key name is 'description' or 'responsibilities' it creates an unordered list instead
   so \n will be rendered as bullet points.
 */
-function Fields(props){
+function PreviewFields(props){
   return (
     <div className = {props.stateKey + 'Preview'}>
       {
@@ -28,4 +28,4 @@ function Fields(props){
   )
 }
 
-export default Fields;
+export default PreviewFields;

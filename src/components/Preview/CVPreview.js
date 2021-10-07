@@ -1,16 +1,17 @@
-import Section from './Section';
-import Fields from './Fields';
+import PreviewSection from './PreviewSection';
+import PreviewFields from './PreviewFields';
 import './Styles/CVPreview.css';
 
 /*
-  This component passes the relevant props to each Section Component for state data stored as an array,
-  and to Fields Components for data stored in an object.
+  This component creates a Section Component for each key in the props.stateKeys array,
+  which correspond to data keys keep in state, and Fields component for Contact Info since
+  that data is not stored as an array in state.
   These called components return div elements that populate the CV page.
 */
 function Preview(props){
   return (
     <div id = 'CVPreview'>
-      <Fields 
+      <PreviewFields 
         stateKey = {'names'}
         completedFields = {{
           firstName: props.contactInfo.firstName,
@@ -22,7 +23,7 @@ function Preview(props){
         }}
       />
 
-      <Fields
+      <PreviewFields
         stateKey = {'personalInfo'}
         completedFields = {{
           phoneNumber: props.contactInfo.phoneNumber,
@@ -38,43 +39,16 @@ function Preview(props){
       
       <hr/>
 
-      <Section
-        stateKey = 'websites'
-        completedFields = {props.websites}
-        templateFields = {props.templates.websites} 
-      />
-      
-      <hr/>
-
-      <Section
-        stateKey = 'projects'
-        completedFields = {props.projects}
-        templateFields = {props.templates.projects}
-      />
-      
-      <hr/>
-
-      <Section
-        stateKey = 'workExperience'
-        completedFields = {props.workExperience}
-        templateFields = {props.templates.workExperience}
-      />
-
-      <hr/>
-
-      <Section
-        stateKey = 'education'
-        completedFields = {props.education}
-        templateFields = {props.templates.education}
-      />
-
-      <hr/>
-
-      <Section
-        stateKey = 'skills'
-        completedFields = {props.skills}
-        templateFields = {props.templates.skills}  
-      />
+      {
+        props.stateKeys.map((key) => {
+          return <PreviewSection 
+            key = {key + 'Section'}
+            stateKey = {key}
+            completedFields = {props[key]}
+            templateFields = {props.templates[key]}
+          />
+        })
+      }
     </div>
   )
 }
