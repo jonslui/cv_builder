@@ -2,21 +2,162 @@
   width: 400px;
   height: 1122.52px;
   overflow-y: auto;
+  font-family: Roboto, sans-serif;
 }
 
+/* -------------Buttons----------------- */
+
+.autofillbuttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+.autofillbuttons button{
+  color: #fff;
+  background: #1a91f0;
+  font-weight: bold;
+  border-radius: 50px;
+  border-style: none;
+  padding: 10px;
+  margin: 0 10px 10px 0;
+}
+.deleteButton {
+  grid-area: delete;
+  color: #fff;
+  background: #2C337D;
+  font-weight: bold;
+  border-style: solid;
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px 3px 20px 3px;
+}
+.addContentButton {
+  width: 50%;
+  font-weight: bold;
+  color: #2C337D;
+  background: #fff;
+  border-color: #2C337D;
+  border-radius: 9px;
+  border-style: solid;
+  padding: 10px;
+  transform: translate(50%, 15%);
+  /* margin: 20px 0 10px 0; */
+}
+.addContentButton:hover {
+  font-weight: bold;
+  color: #fff;
+  background: #2C337D;
+}
+/* .autofillbuttons button:hover {
+  color: #2C337D;
+  background: #fff;
+  font-weight: bold;
+  border-style: solid;
+  border-color: #2C337D;
+} */
+
+/* --------------Inputs---------------- */
+
+.Fill{
+  margin: 10px 10px 10px 0;
+}
+
+
+.projectNameInput, 
+.languagesInput, 
+.projectLinkInput, 
+.descriptionInput,
+.NameInput,
+.jobWantedInput,
+.phoneNumberInput,
+.emailInput,
+.addressInput,
+.universityInput,
+.degreeInput,
+.majorInput,
+.gpaInput,
+.graduationDateInput,
+.jobTitleInput,
+.companyNameInput,
+.locationInput,
+.datesEmployedInput,
+.responsibilitiesInput,
+.skillInput,
+.websiteInput
+{
+  border-radius: 5px;
+  padding: 5px;
+  margin: 3px 3px;
+  border-style: none;
+  background-color: #F4F4FF;
+  font-family: sans-serif;
+}
+
+.projectsContainer,
+.ExperienceContainer,
+.educationContainer,
+.skillsContainer,
+.websitesContainer
+{
+  margin: 10px 0 10px 0;
+  border-radius: 5px;
+  border-style: solid;
+  border-width: 2.5px;
+  border-color: #2C337D;
+  background-color: #FFFFFF;
+  padding: 1px 0 20px 0;
+}
+
+.skillInput,
+.websiteInput
+{
+  text-align: center;
+}
+
+.inputs{
+  margin: 10px 10px;
+}
+
+h2, h1{
+  color: #2C337D;
+  text-align: center;
+}
+h1{
+  text-transform: uppercase;
+  color: #2C337D;
+  font-size: 50px;
+  margin: 15px auto;
+}
+hr{
+  display: none;
+}
+
+/* -------------ContactInfo----------------- */
+
+.AutoFill{
+  background-color: #FFFFFF;
+  border-style: solid;
+  border-width: 2.5px;
+  border-color: #2C337D;
+  border-radius: 5px;
+  padding: 1px 0 1px 0;
+  margin: 10px 10px 10px 0;
+}
 .contactInfoInput {
   display: grid;
   grid-template-columns: 1fr 1fr;
+  margin-bottom: 20px;
   grid-template-areas: 
-  "firstName lastName"
-  "phoneNumber email"
-  "address address";
+  "Name Name"
+  "jobWanted jobWanted"
+  "address address"
+  "phoneNumber phoneNumber"
+  "email email";
 }
-.firstNameInput {
-  grid-area: firstName;
+.NameInput {
+  grid-area: Name;
 }
-.lastNameInput {
-  grid-area: lastName;
+.jobWantedInput {
+  grid-area: jobWanted;
 }
 .phoneNumberInput {
   grid-area: phoneNumber;
@@ -28,23 +169,11 @@
   grid-area: address;
 }
 
-.autofillbuttons {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-}
-
-.deleteButton {
-  grid-area: delete;
-}
-
-.addContentButton {
-  width: 50%;
-}
-
+/* --------------Project---------------- */
 
 .projectsInput {
   display: grid;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   grid-template-columns: 1fr;
   grid-template-areas: 
   "projectName"
@@ -67,16 +196,17 @@
   resize: vertical;
 }
 
-.workExperienceContainer {
+/* --------------Work Experience---------------- */
 
-}
-.workExperienceInput {
+.ExperienceInput {
   display: grid;
-  margin-top: 20px;
+  /* margin-top: 20px; */
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
-  "job company"
-  "location dates"
+  "job job"
+  "company company"
+  "location location"
+  "dates dates"
   "responsibilities responsibilities"
   "delete delete";
 }
@@ -97,14 +227,17 @@
   resize: vertical;
 }
 
+/* --------------Education---------------- */
 
 .educationInput {
   display: grid;
   grid-template-columns: 1fr 1fr;
   grid-template-areas:
   "university university"
-  "date degree"
-  "major gpa"
+  "date date"
+  "degree degree"
+  "major major"
+  "gpa gpa"
   "delete delete";
 }
 .universityInput {
@@ -123,10 +256,35 @@
   grid-area: date;
 }
 
+/* --------------Skills---------------- */
 
-.skills {
-
+.skillsInput {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "skill"
+  "delete";
 }
 
+/* -------------Website----------------- */
+
 .websitesInput {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-areas:
+  "website"
+  "delete";
+}
+
+/* -------------SavePDF----------------- */
+
+.exportButton{
+  color: #FFFFFF;
+  font-weight: bold;
+  background: #1a91f0;
+  border-radius: 50px;
+  border-style: none;
+  padding: 10px 40px 10px 40px;
+  margin: 10px 10px 50px 10px;
+  transform: translate(77%, 30%);
 }
